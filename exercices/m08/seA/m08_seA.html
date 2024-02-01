@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr" onclick="resultatAscension()">
+    <head>
+        <link href="styles_A.css" rel="stylesheet"/>
+        <meta charset="utf-8" />
+        <title>m08 seA</title>
+        <script type="text/javascript">
+
+            "use strict"
+
+            let currentDate;
+            let time;
+
+            function resultatAscension() {
+                alert('Bravo! Votre pingouin a réussi son ascension!')
+            }
+
+            function demarrerChrono() {
+                currentDate = new Date();
+                time = currentDate.getTime();
+            }
+
+            function lectureChrono() {
+                let currentDate2 = new Date();
+                let time2 = currentDate2.getTime();
+                alert(time2-time);
+            }
+
+        </script>
+        </head>
+    <body onload="resultatAscension()">
+        <button onclick="resultatAscension()">
+            Afficher le résultat de l’ascension (onclick)
+        </button>
+        <button onmousedown="resultatAscension()">
+            Afficher le résultat de l’ascension (onmousedown)
+        </button>
+        <button onmousemove="resultatAscension()">
+            Afficher le résultat de l’ascension (onmousemove)
+        </button>
+        <button onmouseleave="resultatAscension()">
+            Afficher le résultat de l’ascension (onmouseleave)
+        </button>
+        <button ondblclick="resultatAscension()">
+            Afficher le résultat de l’ascension (ondblclick)
+        </button>
+
+        <button onclick="demarrerChrono()">
+            Début (instant t0)
+        </button>
+        <button onclick="lectureChrono()">
+            Lecture du chronomètre
+        </button>
+    </body>
+</html>

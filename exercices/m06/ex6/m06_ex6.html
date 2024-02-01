@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <title>m06 ex6</title>
+        <script>
+
+            "use strict"
+
+            const arrSize = 500;
+            let genArr = [];
+            let countArr = [0,0,0,0,0,0,0,0,0,0];
+            
+            
+			function random(n1, n2) {
+				let range = n2-n1+1;
+				return n1+Math.floor(Math.random()*range);
+			}
+			
+            function generate() {
+            	for (let i=0 ; i<arrSize ; i++) {
+					genArr[i] = random(1,10);
+				}
+            }
+            
+            function countNumbers() {
+            	for (let i=0 ; i<genArr.length ; i++) {
+            		countArr[genArr[i]-1] += 1;
+            	}
+            }
+            
+            
+//             init
+
+			generate();
+			countNumbers();
+			alert(`Résultat du comptage :\n1 : ${countArr[0]}\n2 : ${countArr[1]}\n3 : ${countArr[2]}\n4 : ${countArr[3]}\n5 : ${countArr[4]}\n6 : ${countArr[5]}\n7 : ${countArr[6]}\n8 : ${countArr[7]}\n9 : ${countArr[8]}\n10 : ${countArr[9]}`)
+            
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

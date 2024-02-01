@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <title>m02 ex4</title>
+        <script>
+
+            let x = 0;
+            let y = 0;
+            let z = 0;
+
+            function displayNum(value) {
+                alert('Valeurs '+ value +': \n nombre 1: ' + x + '\n nombre 2: ' + y);
+            };
+
+            x = parseInt(prompt('Entrez le nombre 1'));
+            y = parseInt(prompt('Entrez le nombre 2'));
+            
+            displayNum('initiales');
+
+            z = x;
+            x = y;
+            y = z;
+            
+            displayNum('finales');
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>m05 ex3</title>
+        <script>
+
+            // j'avais déjà implémenté la boucle pour la saisie de nombres
+
+            "use strict"
+
+            // variables
+
+            let n1 = 0;
+            let n2 = 0;
+            let ok = false;
+            let list = '';
+            let diff = 0;
+
+
+            // functions
+
+            function verifyN() {
+                n1 = parseInt(prompt('Saisissez votre premier nombre:'));
+                n2 = parseInt(prompt('Saisissez votre deuxième nombre:'));
+
+                if (!(isNaN(n1||n2)) && (n1<n2)) {
+                    ok = true;
+                    diff = n2-n1;
+                    list = 'Nombres entiers entre ' + n1 + ' et ' + n2 + ':\n';
+                }
+            }
+            
+            function listFor() {
+                list += 'boucle for()';
+                for (let i=0; i<=diff; i++) {
+                    list += '\n' + (n1 + i);
+                }
+            }
+
+            function listWhile() {
+                let i = 0;
+                list += 'boucle while()';
+                while (i<=diff) {
+                    list += '\n' + (n1 + i);
+                    i++;
+                }
+            }
+
+            
+            // init
+
+            do {
+                verifyN();
+
+                if (ok == true) {
+                    confirm('Quelle boucle choisissez-vous? (cliquez "ok" pour "for" et "annuler" pour "while")') ? listFor() : listWhile();
+                    alert(list);
+                } else {
+                    alert('Les valeurs que vous avez saisies ne sont pas correctes. Veuillez réessayer.');
+                }
+            } while (ok == false)
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

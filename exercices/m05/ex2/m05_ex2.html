@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>m05 ex2</title>
+        <script>
+
+            "use strict"
+
+            // variables
+
+            let n = 0;
+            let ok = false;
+
+
+            // functions
+
+            function verifyN(x,y) {
+                n = parseInt(prompt('Saisissez un nombre:'));
+
+                if (!(isNaN(n))) {
+                    ok = true;
+                }
+            }
+
+            
+            // init
+
+            do {
+                verifyN();
+
+                ok == true? alert('Le nombre saisi est: ' + n) : alert('Vous n\'avez pas saisi un nombre!');
+            } while (ok == false)
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

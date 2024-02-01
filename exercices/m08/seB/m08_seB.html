@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>m08 seB</title>
+        <script type="text/javascript">
+
+            "use strict"
+
+            function random(n1, n2) {
+                let range = n2-n1+1;
+                return n1+Math.floor(Math.random()*range);
+            }
+
+            function resJeu() {
+                let outArr = ['Vous avez gagné !','Essayez encore ! Vous avez une réponse fausse !','Révisez vos classiques ! Vous avez plusieurs réponses fausses !'];
+
+                document.getElementById("prenom_res").innerHTML = `<h3>${outArr[random(0,(outArr.length-1))]}</h3>`;
+            }
+
+        </script>
+        </head>
+    <body>
+
+        <button onclick="resJeu()">
+            Afficher les résultats du jeu
+        </button>
+        
+        <div id="prenom_res">
+            &nbsp;
+        </div>
+
+        <button onclick="resJeu()">
+            Nouveau résultat
+        </button>
+
+    </body>
+</html>

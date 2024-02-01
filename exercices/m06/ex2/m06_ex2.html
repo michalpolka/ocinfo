@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title> module 06, exercice 2 : donnée </title>
+        <script>
+
+            "use strict";
+
+            let array = [1, 8, 27];
+
+            //déclaration de la fonction racineCubique(tN)
+            function racineCubique(tN) {
+                let outputArr = [];
+                for (let i=0 ; i<tN.length ; i++) {
+                    outputArr[i] = tN[i]**(1/3);
+                }
+                return outputArr;
+            }
+
+            //test de la fonction racineCubique(tN)
+            alert(racineCubique(array));
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

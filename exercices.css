@@ -1,0 +1,190 @@
+/* Fonts */
+
+/* Playfair Display (variable) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* Heebo (300) */
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
+
+/* Jetbrains Mono (500) */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
+
+
+
+
+/* Variables */
+
+:root {
+    --color-bg: #F6EEE3;
+    --color-bg-code: #252525;
+    --color-hover: #424242;
+    --color-text: #000000;
+    --color-textCode: #4af626;
+    --color-textCodeLang: #f6a626;
+}
+
+
+
+
+
+/* HTML Tags */
+
+a {
+    color: inherit;
+    position: relative;
+    text-decoration: inherit;
+}
+
+body {
+    background: var(--color-bg);
+    font-family: Heebo, sans-serif;
+    font-weight: 300;
+    font-size: 0.9em;
+    margin: 0;
+    min-height: 100vh;
+    padding: 5vh 5vw;
+    width: 90vw;
+}
+
+code {
+    color: var(--color-textCode);
+    font-family: 'Jetbrains Mono', monospace;
+    font-weight: 500;
+}
+
+h1 {
+    line-height: 1em;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 5em;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-align: center;
+}
+
+h2 {
+    line-height: 1em;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 2em;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-align: center;
+}
+
+pre {
+    margin: 0;
+}
+
+
+
+
+
+/* .Classes */
+
+/* Flex Parent Classes */
+.flex {
+    display: flex;
+}
+
+.flex-acenter {
+    align-items: center;
+}
+
+.flex-atop {
+    align-items: flex-start;
+}
+
+.flex-jcenter {
+    justify-content: center;
+}
+
+.flex-jleft {
+    justify-content: flex-start;
+}
+
+.flex-jspacebetween {
+    justify-content: space-between;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+
+/* Flex Gap Classes */
+
+.gap-1 {
+    gap: 1em;
+}
+
+.gap-2 {
+    gap: 2em;
+}
+
+.gap-3 {
+    gap: 3em;
+}
+
+
+/* Other Classes */
+
+.button {
+    background: var(--color-text);
+    border: none;
+    border-radius: 50vb;
+    color: var(--color-bg);
+    cursor: grab;
+    font-family: Heebo, sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    padding: 0.4em 1em;
+}
+
+.button:hover {
+    background-color: var(--color-hover);
+    transition: 90ms;
+}
+
+.link {
+    cursor: grab;
+}
+
+.link:hover {
+    color: var(--color-hover);
+    transition: 90ms;
+}
+
+.codeBlock {
+    background-color: var(--color-bg-code);
+    border-radius: 2em;
+    color: var(--color-bg);
+    padding: 3em;
+}
+
+.codeBlock:hover {
+    background-color: var(--color-hover);
+}
+
+.codeLang {
+    color: var(--color-textCodeLang);
+    font-family: 'Fira Code', mono;
+    font-size: 1.0em;
+    font-weight: 500;
+}
+
+.codeTitle {
+    color: var(--color-bg);
+    font-family: "Heebo", sans;
+    font-size: 1.8em;
+    font-weight: 300;
+    text-align: left;
+}

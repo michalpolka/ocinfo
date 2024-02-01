@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <title>m03 ex3</title>
+        <script>
+
+            let r = Math.floor(Math.random() * 19 + 1);
+            // console.log(r)
+
+            let i = 0;
+
+            let state = false;
+
+            do {
+                n = prompt('Devinez un nombre entier.') || undefined;
+                n === undefined ? n = 0 : n = n;
+                // console.log('n=' + n);
+
+                if (!isNaN(n)) {
+                    n = parseInt(n);
+                    i++;
+                    // console.log('success' + i + n);
+                } else {
+                    alert('Il faut entrer un nombre enter.');
+                    // console.log('fail' + i + n);
+                    continue;
+                }
+
+                if (n==r) {
+                    state = true;
+                    break;
+                }
+
+                // console.log(state)
+                
+            } while (i<3);
+
+            if (state == true) {
+                alert('Bravo! Vous avez réussi. Le nombre secret était ' + r);
+            } else {
+                alert('Vous avez échoué. get gud');
+            }
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

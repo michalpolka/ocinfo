@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>M05 : ex 10</title>
+        <script>
+
+            "use strict";
+
+            //Il n'y a pas de variables globales.
+
+            //déclaration des fonctions
+
+            //Cette fonction retourne true si n est un nombre et qu'il est entier.
+            //L'instruction est écrite de manière compacte (une seule ligne)!
+
+            function validerNombre(n) {
+                return !isNaN(n)&&(n%1)==0 ? true : false;
+            }
+
+            //Cette fonction retourne true si n est compris entre
+            //la borne inférieure (borne inférieure comprise) et
+            //la borne supérieure (borne supérieure comprise).
+            //L'instruction est écrite de manière compacte (une seule ligne)!
+
+            function testerNombre(n,nInf,nSup) {
+                return (nInf<=n)&&(n<=nSup) ? true : false ;
+            }
+
+            //Cette fonction construit et retourne le texte donnant le résultat
+            //(exemple en annexe).
+
+            function preparerAffichageNombres(n1,n2) {
+                let diff = n2-n1+1;
+                let txt = `${diff} nombres compris entre ${n1} et ${n2} (bornes comprises) :\n[`;
+
+                for (let i = 0 ; i<=(n2-n1) ; i++) {
+                    txt += (n1+i);
+                    if (((i+1)%5)==0) {
+                        txt += '\n';
+                    }
+                    if (!(i==(n2-n1))) {
+                        txt += ' - ';
+                    }
+                }
+
+                txt += ']';
+
+                return txt;
+            }
+
+            //programme principal
+
+            function princ() {
+
+                let nombre_1 = 0;
+                let nombre_2 = 0;
+
+                //1. Saisir le premier nombre entier (qui doit se situer entre 1 et 100)
+                //et contrôler sa validité.
+
+                for (let ok=false ; ok==false ; null) {
+                    nombre_1 = prompt('Saisissez un nombre entier entre 1 et 100')
+
+                    if (validerNombre(nombre_1)&&testerNombre(nombre_1,1,100)) {
+                        nombre_1 = parseInt(nombre_1);
+                        ok = true;
+                    } else {
+                        alert('Vous n\'avez pas saisi un nombre valable.')
+                    }
+
+                }
+
+
+                //2. Saisir le second nombre entier (qui doit se situer entre 101 et 200)
+                //et contrôler sa validité.
+
+                for (let ok=false ; ok==false ; null) {
+                    nombre_2 = prompt('Saisissez un nombre entier entre 101 et 200')
+
+                    if (validerNombre(nombre_2)&&testerNombre(nombre_2,101,200)) {
+                        nombre_2 = parseInt(nombre_2);
+                        ok = true;
+                    } else {
+                        alert('Vous n\'avez pas saisi un nombre valable.')
+                    }
+
+                }
+
+
+
+                //3. préparer la liste des nombres entre nombre1 et nombre2 et l'afficher
+                //via une fenêtre alert
+
+                alert(preparerAffichageNombres(nombre_1, nombre_2));
+
+            }
+
+            //lancement du programme principal
+
+            princ();
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

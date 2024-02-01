@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>m05 ex4</title>
+        <script>
+
+            "use strict"
+
+            // variables
+
+            let n = 0;
+            let m = 0;
+            let ok = false;
+            let list = '';
+
+
+            // functions
+
+            function verifyN() {
+                n = parseInt(prompt('Saisissez un nombre:'));
+                m = parseInt(prompt('Saisissez le nombre de multiples:'));
+
+                if (!(isNaN(n))&&!(isNaN(m))) {
+                    ok = true;
+                    list = 'Liste des multiples de ' + n + ':';
+                }
+            }
+            
+            function listMultiples() {
+                for (let i=1 ; i<=m ; i++) {
+                    list += '\n' + (n*i);
+                }
+            }
+
+
+            
+            // init
+
+            do {
+                verifyN();
+
+                if (ok == true) {
+                    listMultiples()
+                    alert(list);
+                } else {
+                    alert('Les valeurs que vous avez saisies ne sont pas correctes. Veuillez réessayer.');
+                }
+            } while (ok == false)
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

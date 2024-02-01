@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <title>m03 ex2</title>
+        <script>
+
+            let x = 0;
+            let y = 0;
+            let z = 0;
+
+            x = prompt('Entrez un nombre x');
+            isNaN(x) ?  x = undefined : x = parseFloat(x);
+
+            y = prompt('Entrez un nombre y');
+            isNaN(y) ?  y = undefined : y = parseFloat(y);
+
+            z = prompt('Entrez un nombre z');
+            isNaN(z) ?  z = undefined : z = parseFloat(z);
+
+            if (isNaN(x) || isNaN(y) || isNaN(z)) {
+                alert('Je vous ai demandé des nombres...')
+            } else if (x < y && x < z) {
+                alert('x est le plus petit.')
+            } else if (x > y && y < z) {
+                alert('y est le plus petit.')
+            } else if (x > z && y > z) {
+                alert('z est le plus petit.')
+            } else if (x == y && x < z) {
+                alert('x = y sont les plus petits.')
+            } else if (x == z && x < y) {
+                alert('x = z sont les plus petits.')
+            } else if (y == z && y < x) {
+                alert('y = z sont les plus petits.')
+            } else {
+                alert('Je n\'ai pas pensé à ce cas')
+            }
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

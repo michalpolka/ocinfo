@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title> module 06, exercice 3 : donnée </title>
+        <script>
+
+            "use strict";
+
+            let firstName = ['Niels','Erwin'];
+            let lastName = ['Bohr','Schrödinger','Pauli','Heisenberg'];
+            let year = ['1885','1887','1900'];
+
+            //déclaration de la fonction reunionTableaux(t1,t2,t3)
+            function reunionTableaux(t1,t2,t3) {
+                let txt = '';
+                for (let i=0 ; (i<(t1.length))||(i<(t2.length))||(i<(t3.length)) ; i++) {
+                    txt = txt + `${i+1} : ${t1[i]} ${t2[i]} ${t3[i]}\n`;
+                }
+                return txt;
+            }
+
+            //test de la fonction reunionTableaux(t1,t2,t3)
+            alert(reunionTableaux(firstName,lastName,year));
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

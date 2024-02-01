@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>m05 ex6</title>
+        <script>
+ 
+            // afin d'obtenir le résultat voulu dans la donnée, insérer "12" et "12"
+
+            "use strict"
+
+            // variables
+
+            let n = 0;
+            let ok = false;
+
+
+            // functions
+            
+            function verifyN() {
+                n = parseInt(prompt('Saisissez un nombre entier non négatif non nul:'));
+
+                if (!(isNaN(n))&&(n>0)) {
+                    ok = true;
+                }
+            }
+
+            function computeFactorial(x) {
+                let result = 1;
+                for (let i=0 ; i<x ; i++) {
+                    result *= (x-i);
+                }
+                return result;
+            }
+
+
+
+
+            
+            // init
+
+            do {
+                verifyN();
+
+                if (ok == true) {
+                    alert(n + '! = ' + computeFactorial(n));
+                } else {
+                    alert('La valeur que vous avez saisi n\'est pas correcte. Veuillez réessayer.');
+                }
+            } while (ok == false)
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

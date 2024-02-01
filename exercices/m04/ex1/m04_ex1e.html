@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>M04 : ex 1e, donnée</title>
+        <script>
+
+            "use strict";
+
+/* 
+Ecrivez la déclaration de la fonction genererNbreAleatoire(...) qui reçoit en paramètres deux nombres, x et y, et qui retourne un nombre aléatoire compris entre ces deux nombres (bornes comprises).
+
+Par exemple :
+- L'appel genererNbreAleatoire(6,10) ou genererNbreAleatoire(10,6) retourne la valeur 6, 7, 8, 9 ou 10 avec une probabilité égale.
+- L'appel genererNbreAleatoire(-3,0) retourne la valeur -3, -2, -1, ou 0 avec une probabilité égale.
+ */
+
+            function genererNbreAleatoire(x,y) {
+                return Math.floor(Math.random()*(y-x+1)+x);
+            }
+
+/* 
+Ecrivez la déclaration de la fonction controlerNbresEtAfficher(...) qui
+
+- demande à l'utilisateur (via deux fenêtres prompt successives) de lui fournir deux nombres entiers.
+
+- vérifie si les valeurs fournies sont des nombres. Sinon, fait apparaître un message adéquat via une fenêtre alert.
+
+- S'il s'agit bien de deux nombres, vérifie si les nombres proposés sont des nombres entiers. Sinon, fait apparaître un message adéquat via une fenêtre alert.
+
+- S'il s'agit bien de deux nombres entiers, utilise la fonction genererNbreAleatoire (...) pour générer un nombre aléatoire compris entre les deux nombres entiers entrés par l'utilisateur et affiche le résultat via une fenêtre alert.
+
+Exemple de message : 'Le nombre généré aléatoirement entre -34 et 45 est -14.'
+ */
+
+            function controlerNbresEtAfficher() {
+                let ok = false;
+                do {
+                    let a = prompt('Entrez un nb entier') || undefined;
+                    let b = prompt('Entrez un nb entier') || undefined;
+                    console.log(a);
+                    console.log(b);
+                    
+                    if (isNaN(a&&b)) {
+                        alert('faut entrer un nombre');
+                    } else if (parseInt(a)!=parseFloat(a)||parseInt(b)!=parseFloat(b)) {
+                        alert('faut entrer un nombre entier');
+                    } else {
+                        ok = true;
+                        a = parseInt(a);
+                        b = parseInt(b);
+                        let c = genererNbreAleatoire(a,b);
+                        alert('Le nombre généré aléatoirement entre ' + a + ' et ' + b + ' est ' + c + '.')
+                    }
+                } while (ok == false);
+            }
+
+/* 
+Ecrivez l'instruction qui permet de lancer le programme.
+ */
+
+            controlerNbresEtAfficher();
+
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

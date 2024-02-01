@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <link rel="icon" href="icon.png" />
+        <link rel="stylesheet" href="exercices.css" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Michal Polka" />
+        <meta name="color-scheme" content="light" />
+        <meta name="description" content="Page d'accueil de Michal Polka." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Code Snippets | Michal Polka</title>
+    </head>
+    <body class="flex flex-acenter flex-jcenter flex-column gap-2" id="body">
+        
+        <!-- Text -->
+        <div class="flex flex-acenter flex-column flex-jcenter">
+            <!-- Path -->
+            <div class="path">
+                <a class="link" href="https://ocinfo.ch/OCinfo">oc info</a>/<a class="link" href="https://ocinfo.ch/eleves">élèves</a>/<a class="link" href="index.html">Michal Polka</a>/
+            </div>
+
+            <!-- Title -->
+            <h1>Code Snippets</h1>
+        </div>
+
+
+        <!-- Snippets container -->
+        <div class="flex flex-row flex-jcenter flex-wrap gap-2">
+
+            <!-- (js) Input -->
+            <div class="codeBlock">
+                <div class="flex flex-row flex-acenter flex-jspacebetween gap-1">
+                    <h2 class="codeTitle">Request input (number)</h2>
+                    <h2 class="codeLang">[.js]</h2>
+                </div>
+                <p class="codeDesc">Requests input from user and runs a number check.</p>
+                <div>
+<pre><code>function set(userPrompt,errorMsg) {
+    let inputVar = 0;
+    let ok = false;
+    do {
+        inputVar = parseInt(prompt(userPrompt));
+        if (!(isNaN(inputVar))&&(inputVar>1)) {
+            ok = true;
+        } else {
+            alert(errorMsg);
+        }
+    } while (ok == false)
+    return inputVar;
+}</code></pre>
+                    </div>
+            </div>
+
+            <!-- (js) Random number -->
+            <div class="codeBlock">
+                <div class="flex flex-row flex-acenter flex-jspacebetween gap-1">
+                    <h2 class="codeTitle">Generate random number</h2>
+                    <h2 class="codeLang">[.js]</h2>
+                </div>
+                <p class="codeDesc">Generates random number between n1 and n2 (inclusive).</p>
+                <div>
+<pre><code>function random(n1, n2) {
+    let range = n2-n1+1;
+    return n1+Math.floor(Math.random()*range);
+}</code></pre>
+                    </div>
+            </div>
+
+            <!-- (html) Template for js only page -->
+            <div class="codeBlock">
+                <div class="flex flex-row flex-acenter flex-jspacebetween gap-1">
+                    <h2 class="codeTitle">HTML for JS only page</h2>
+                    <h2 class="codeLang">[.html]</h2>
+                </div>
+                <p class="codeDesc">Basis for an html page which only contains a script.</p>
+                <div>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"/&gt;
+        &lt;title&gt;[INSERT TITLE]&lt;/title&gt;
+        &lt;script&gt;
+
+            "use strict"
+
+            [INSERT SCRIPT]
+
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+            </div>
+
+            <!-- (html) Template for html page -->
+            <div class="codeBlock">
+                <div class="flex flex-row flex-acenter flex-jspacebetween gap-1">
+                    <h2 class="codeTitle">HTML for web page</h2>
+                    <h2 class="codeLang">[.html]</h2>
+                </div>
+                <p class="codeDesc">Basis for an html page for a website.</p>
+                <div>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;link rel="icon" href="[INSERT ICON FILE]" /&gt;
+        &lt;link rel="stylesheet" href="[INSERT CSS FILE]" /&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;meta name="author" content="Michal Polka" /&gt;
+        &lt;meta name="description" content="[INSERT DESCRIPTION]" /&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+        &lt;title&gt;[INSERT TITLE]&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        [INSERT BODY]
+
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+            </div>
+
+            <!-- (html) Template for html/js page -->
+            <div class="codeBlock">
+                <div class="flex flex-row flex-acenter flex-jspacebetween gap-1">
+                    <h2 class="codeTitle">Template for web page</h2>
+                    <h2 class="codeLang">[.html, .js]</h2>
+                </div>
+                <p class="codeDesc">Basis for an html/js page for a website.</p>
+                <div>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;title&gt;[INSERT TITLE]&lt;/title&gt;
+        &lt;script type="text/javascript"&gt;
+
+            "use strict"
+
+            [INSERT JS]
+
+        &lt;/script&gt;
+        &lt;/head&gt;
+    &lt;body&gt;
+
+        [INSERT BODY]
+
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+            </div>
+
+            
+
+        </div>
+    </body>
+</html>

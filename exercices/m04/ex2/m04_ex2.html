@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+
+        <meta charset="utf-8">
+        <title>M04 : ex 2, donnée</title>
+        
+        <script>
+
+            "use strict";
+
+            //déclaration des variables globales:
+
+            var numeroTour = 1;
+            var position = 0;
+
+            let i = numeroTour-1;
+
+            // déclaration de la fonction lancerDe(), qui retourne une valeur entière
+            // entre 1 et 6, calculée de manière aléatoire
+
+            function lancerDe() {
+                return Math.floor(Math.random() * 6) + 1;
+            };
+
+            // déclaration de la fonction unTour(), qui gère toutes les opérations
+            // à effectuer en un tour de jeu et affiche la fenêtre alert qui donne
+            // le résultat de ce tour
+
+            function unTour() {
+                let a = lancerDe();
+                let b = lancerDe();
+                let msg = '';
+
+                if ((a||b)==3) {
+                    position += 2*(a+b);
+                    msg = '\nVous avancez de ' + 2*(a+b) + ' cases.';
+                } else if (a==4 && b==4) {
+                    position -= 8;
+                    position = position < 0 ? 0 : position;
+                    msg = '\nVous reculez de 8 cases.';
+                } else {
+                    position += (a+b);
+                    msg = '\nVous avancez de ' + (a+b) + ' cases.';
+                }
+
+                i++
+
+                alert('Tour ' + i + '\nDé 1: ' + a + '\nDé2: ' + b + '\nVous êtes maintenant sur la case ' + position + '.')
+            }
+
+            // déclaration de la fonction jeu(), qui gère l'ensemble d'une partie
+            // et affiche la fenêtre donnant le résultat final du jeu
+
+            function jeu() {
+                do {
+                    unTour();
+                } while (i<3 && position < 21)
+                alert(position >= 21 ? 'Vous avez gagné!' : 'Vous avez perdu.');
+            }
+
+            // appel de la fonction jeu()
+
+            jeu();
+
+
+        </script>
+    
+    </head>
+    
+    <body>
+
+    </body>
+</html>

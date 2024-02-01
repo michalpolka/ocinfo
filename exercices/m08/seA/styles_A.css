@@ -1,0 +1,12 @@
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+button {
+    background-color: #12345699;
+    font-family: zapfino, serif;
+    font-size: .5em;
+    height: 10vw;
+    width: 10vh;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>m05 ex5</title>
+        <script>
+ 
+            // afin d'obtenir le résultat voulu dans la donnée, insérer "12" et "12"
+
+            "use strict"
+
+            // variables
+
+            let w = 0;
+            let h = 0;
+            let list = '';
+            let ok = false;
+
+            // functions
+            
+            function verifyN() {
+                w = parseInt(prompt('Saisissez la largeur du tableau de livrets:'));
+                h = parseInt(prompt('Saisissez la hauteur du tableau de livrets:'));
+
+                if (!(isNaN(w))&&!(isNaN(h))) {
+                    ok = true;
+                    list = 'Tableau des livrets ' + w + 'x' + h + ':';
+                }
+            }
+
+            function listMultiples() {
+                for (let i=1 ; i<=h ; i++) {
+                    list += '\n';
+                    for (let j=1 ; j<=w ; j++) {
+                        list += (i*j) + ' ';
+                    }
+                }
+            }
+
+
+            
+            // init
+
+            do {
+                verifyN();
+
+                if (ok == true) {
+                    listMultiples()
+                    alert(list);
+                } else {
+                    alert('Les valeurs que vous avez saisies ne sont pas correctes. Veuillez réessayer.');
+                }
+            } while (ok == false)
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

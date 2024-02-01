@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>m05 ex7</title>
+        <script>
+
+            "use strict"
+
+            // variables
+
+            let w = 0;
+            let h = 0;
+
+
+            // functions
+
+            function set(userPrompt, errorMsg) {
+                let inputVar = 0;
+                let ok = false;
+
+                do {
+                    inputVar = parseInt(prompt(userPrompt));
+
+                    if (!(isNaN(inputVar))&&(inputVar>1)) {
+                        ok = true;
+                    } else {
+                        alert(errorMsg);
+                    }
+                } while (ok == false)
+                
+                return inputVar;
+            }
+
+            function makeGrid(width, height) {
+                let grid = '';
+                for (let i=1 ; i<=height ; i++) {
+                    grid += '\n';
+                    for (let j=1 ; j<=width ; j++) {
+                        if ((i%2)!=0) {
+                            if ((j%2)==0) {
+                                grid += 'O';
+                            } else {
+                                grid += 'X';
+                            }
+                        } else {
+                            if ((j%2)==0) {
+                                grid += 'X';
+                            } else {
+                                grid += 'O';
+                            }
+                        }
+                    }
+                }
+                return grid;
+            }
+
+
+            
+            // init
+
+            w = set('Saisissez un nombre entier (> 1) pour définir la largeur de la grille :', 'Lisez les instructions.');
+            h = set('Saisissez un nombre entier (> 1) pour définir la hauteur de la grille :', 'Lisez les instructions.');
+            alert(makeGrid(w, h))
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

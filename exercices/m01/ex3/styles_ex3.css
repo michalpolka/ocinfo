@@ -1,0 +1,90 @@
+/* html tags */
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+body {
+    border: 5px solid deeppink;
+    background: pink;
+    font-family: Monospace, 'Arial Narrow', sans;
+    margin: 60px auto;
+    padding: 20px;
+    width: 800px;
+}
+
+html {
+    background-image: url("img/neige.jpg");
+}
+
+img {
+    padding: 5px;
+    width: 90%;
+}
+
+p {
+    text-align: justify;
+}
+
+
+
+/* .classes */
+
+.city {
+    background-color: floralwhite;
+    border: 1px solid hotpink;
+    display: flex; /* Je sais que nous n'étions pas censés utiliser flexbox, mais je n'ai pas compris ce que vous vouliez, et ça me semablait être une bonne solution. */
+    flex-direction: row;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.cityDesk {
+    margin: 0px;
+    vertical-align: top;
+}
+
+.cityLeft {
+    flex-shrink: 0;
+    width: 220px;
+}
+
+.citySubtitle {
+    font-size: 120%;
+}
+
+.cityTitle {
+    color: darkblue;
+    font-size: 25px;
+}
+
+.description {
+    font-style: italic;
+}
+
+.footer {
+    margin: 20px;
+}
+
+.footerText {
+    color: green;
+    font-size: 15px;
+    text-align: center;
+}
+
+.instructions {
+    color: darkblue;
+    text-align: center;
+}
+
+.pageTitle {
+    color: hotpink;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.subtle {
+    color: gray;
+}

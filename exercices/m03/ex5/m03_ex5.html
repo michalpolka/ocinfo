@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <title>m03 ex05</title>
+        <script>
+
+            let i = 0;
+
+            let chosenDie = [];
+            let finalDie = [];
+            let die = [];
+
+            do {
+                die = [];
+                
+                function dieRoll() {
+                    die.push(Math.floor(Math.random() * 6) + 1);
+                };
+
+                let i3 = 0;
+                do {
+                    if (chosenDie[0] == i3) {
+                        die.push(chosenDie[1]);
+                    } else if (chosenDie[2] == i3) {
+                        die.push(chosenDie[3]);
+                    } else {
+                        dieRoll();
+                    }
+                    i3++;
+                } while (i3<5)
+
+                // console.log(die);
+
+                alert('Dé 1: ' + die[0] + '\nDé 2: ' + die[1] + '\nDé 3: ' + die[2] + '\nDé 4: ' + die[3] + '\nDé 5: ' + die[4] + '\nChoisissez les dés que vous voulez garder.');
+
+                let chosen = false;
+                let i2 = 0;
+
+                do {
+                    chosen = confirm('Pressez OK pour garder le dé ' + (i2+1) + ': ' + die[i2]);
+                    if (chosen == true) {
+                        chosenDie.push(i2, die[i2]);
+                        // console.log(chosenDie);
+                    }
+                    i2++;
+                    if (i2==5) {
+                        i2 = 0;
+                    }
+                } while (chosen == false)
+
+
+                
+                i++;
+            } while (i < 3)
+            
+            let i4 = 0;
+            do {
+                finalDie.push(die[i4]);
+                i4++;
+            } while (i4<5)
+
+            // console.log('fd' + finalDie)
+            alert('Dé 1: ' + finalDie[0] + '\nDé 2: ' + finalDie[1] + '\nDé 3: ' + finalDie[2] + '\nDé 4: ' + finalDie[3] + '\nDé 5: ' + finalDie[4] + '\nQu\'avez-vous obtenu?')
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

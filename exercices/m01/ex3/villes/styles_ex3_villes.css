@@ -1,0 +1,54 @@
+/* html tags */
+
+a {
+    color: darkmagenta;
+}
+
+p {
+    font-family: 'Courier', sans;
+}
+
+table {
+    position: absolute;
+}
+
+table.edinburgh {
+    left: 340px;
+    top: 77px;
+}
+
+table.madrid {
+    left: 330px;
+    top: 530px;
+}
+
+td {
+    height: 15px;
+    padding: 0px;
+}
+
+
+
+/* classes */
+
+.color-edinburgh {
+    background-color: red;
+}
+
+.color-madrid {
+    background-color: yellow;
+}
+
+.table-element {
+    font-weight: bold;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+.table-left {
+    width: 15px
+}
+
+.table-right {
+    padding-left: 5px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>m08 seC</title>
+        <script type="text/javascript" src="fcts_utilitaires.js"></script>
+        <script type="text/javascript">
+
+            "use strict"
+
+            let firstArray = ['first1','first2','first3','first4'];
+            let lastArray = ['last1','last2','last3','last4'];
+
+            function random(n1, n2) {
+                let range = n2-n1+1;
+                return n1+Math.floor(Math.random()*range);
+            }
+
+            function premierePartie() {
+                let prenom = document.getElementById('prenom').value || undefined;
+                let nom = document.getElementById('nom').value || undefined;
+                if ((prenom === undefined) || (nom === undefined)) {
+                    alert('Vous devez entrer votre nom et prénom.');
+                } else {
+                    remplirHTML('prenom_res',`${prenom} ${nom}, vous pouvez commencer la partie.`);
+                }
+            }
+
+            function init() {
+                $('prenom').value = firstArray[random(0,firstArray.length-1)];
+                $('nom').value = lastArray[random(0,firstArray.length-1)];
+            }
+
+        </script>
+        </head>
+    <body>
+
+        <div id="prenom_res">
+            Entrez votre prénom et votre nom pour commencer la première partie:
+        </div>
+
+        <input id="prenom" maxlength="30" onkeydown="if(event.key==='Enter')premierePartie()" value="First" />
+        <input id="nom" maxlength="30" onkeydown="if(event.key==='Enter')premierePartie()" value="Last" />
+
+        <button onclick="init()">
+            Initialiser
+        </button>
+
+    </body>
+</html>
