@@ -9,19 +9,29 @@
             "use strict"
             
             function pingouinG() {
-                document.getElementById('pingouin').style.left -= 10;
+                $('pingouin').style.left -= 10;
             }
             
             function pingouinD() {
-                document.getElementById('pingouin').style.left += 10;
+                $('pingouin').style.left += 10;
             }
             
             function pingouinH() {
-                document.getElementById('pingouin').style.top -= 10;
+                $('pingouin').style.top -= 10;
             }
             
             function pingouinB() {
-                document.getElementById('pingouin').style.top += 10;
+                $('pingouin').style.top += 10;
+            }
+            
+            function pingouinPlus() {
+                $('pingouin').style.width *= 1.1;
+                $('pingouin').style.height *= 1.1;
+            }
+            
+            function pingouinMoins() {
+                $('pingouin').style.width *= 1.1;
+                $('pingouin').style.height *= 1.1;
             }
             
         </script>
@@ -32,5 +42,7 @@
         <button onclick="pingouinD()">Droite</button>
         <button onclick="pingouinH()">Haut</button>
         <button onlcick="pingouinB()">Bas</button>
+        <button onclick="pingouinPlus()">+</button>
+        <button onclick="pingouinMoins()">-</button>
     </body>
 </html>
