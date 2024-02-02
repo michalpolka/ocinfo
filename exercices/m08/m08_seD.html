@@ -8,12 +8,17 @@
             
             "use strict"
             
+            let x = 100;
+            let dx = 10;
+            
             function pingouinG() {
-                $('pingouin').style.left -= 10;
+                x -= dx;
+                $('pingouin').style.left = x;
             }
             
             function pingouinD() {
-                $('pingouin').style.left += 10;
+                x += dx;
+                $('pingouin').style.left = x;
             }
             
             function pingouinH() {
