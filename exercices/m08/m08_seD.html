@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>m08 seD</title>
+        <script type="text/javascript" src="fcts_utilitaires.js"></script>
+        <script type="text/javascript">
+            
+            "use strict"
+            
+            function pingouinG() {
+                document.getElementById('pingouin').style.left -= 10;
+            }
+            
+            function pingouinD() {
+                document.getElementById('pingouin').style.left += 10;
+            }
+            
+            function pingouinH() {
+                document.getElementById('pingouin').style.top -= 10;
+            }
+            
+            function pingouinB() {
+                document.getElementById('pingouin').style.top += 10;
+            }
+            
+        </script>
+    </head>
+    <body>
+        <img src='images/pingouin_grand.png' id='pingouin'>
+        <button onclick="pingouinG()">Gauche</button>
+        <button onclick="pingouinD()">Droite</button>
+        <button onclick="pingouinH()">Haut</button>
+        <button onlcick="pingouinB()">Bas</button>
+    </body>
+</html>
