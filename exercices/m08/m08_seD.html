@@ -3,51 +3,119 @@
     <head>
         <meta charset="utf-8">
         <title>m08 seD</title>
+        <link rel="stylesheet" href="styles_DEF.css" />
         <script type="text/javascript" src="fcts_utilitaires.js"></script>
         <script type="text/javascript">
             
             "use strict"
             
-            let x = 100;
-            let dx = 10;
-            
-            function pingouinG() {
-                x -= dx;
-                $('pingouin').style.left = x;
+            let x0 = 100;
+            let x1 = 100;
+            // let dx = 10;
+
+            function pingouinX(xIn) {
+                if (pingouin===0) {
+                    x0 += xIn;
+                    $('pingouin').style.left = x0 + 'px';
+                } else {
+                    x1 += xIn;
+                    $('pingouin_rouge').style.left = x1 + 'px';
+                }
             }
-            
-            function pingouinD() {
-                x += dx;
-                $('pingouin').style.left = x;
+
+            // function pingouinG() {
+            //     x -= dx;
+            //     $('pingouin').style.left = x + 'px';
+            // }
+            //
+            // function pingouinD() {
+            //     x += dx;
+            //     $('pingouin').style.left = x + 'px';
+            // }
+
+            let y0 = 50;
+            let y1 = 50;
+            // let dy = 10;
+
+            function pingouinY(yIn) {
+                if (pingouin===0) {
+                    y0 += yIn;
+                    $('pingouin').style.top = y0 + 'px';
+                } else {
+                    y1 += yIn;
+                    $('pingouin_rouge').style.top = y1 + 'px';
+                }
             }
-            
-            function pingouinH() {
-                $('pingouin').style.top -= 10;
+
+            // function pingouinH() {
+            //     y -= dy;
+            //     $('pingouin').style.top = y + 'px';
+            // }
+            //
+            // function pingouinB() {
+            //     y += dy;
+            //     $('pingouin').style.top = y + 'px';
+            // }
+
+            let w0 = 290;
+            let h0 = 421;
+            let w1 = 290;
+            let h1 = 421;
+
+            function pingouinZoom(coeffIn) {
+                if (pingouin===0) {
+                    w0 = w0*coeffIn;
+                    h0 = h0*coeffIn;
+                    $('pingouin').style.width = w0 + 'px';
+                    $('pingouin').style.height = h0 + 'px';
+                } else {
+                    w1 = w1*coeffIn;
+                    h1 = h1*coeffIn;
+                    $('pingouin_rouge').style.width = w1 + 'px';
+                    $('pingouin_rouge').style.height = h1 + 'px';
+                }
             }
-            
-            function pingouinB() {
-                $('pingouin').style.top += 10;
-            }
-            
-            function pingouinPlus() {
-                $('pingouin').style.width *= 1.1;
-                $('pingouin').style.height *= 1.1;
-            }
-            
-            function pingouinMoins() {
-                $('pingouin').style.width *= 1.1;
-                $('pingouin').style.height *= 1.1;
+
+            // function pingouinPlus() {
+            //     w = w*1.1;
+            //     h = h*1.1;
+            //     $('pingouin').style.width = w + 'px';
+            //     $('pingouin').style.height = h + 'px';
+            // }
+            //
+            // function pingouinMoins() {
+            //     w = w/1.1;
+            //     h = h/1.1;
+            //     $('pingouin').style.width = w + 'px';
+            //     $('pingouin').style.height = h + 'px';
+            // }
+
+            let pingouin = 0;
+            function changerPingouin() {
+                pingouin = (pingouin+1)%2;
+                console.log(pingouin);
+                // $('pingouin').src = 'images/pingouin' + ((pingouin === 0) ? '_grand' : '_rouge_grand') + '.png' ;
+
+                if (pingouin===1) {
+                    $('pingouin').style.visibility = 'hidden';
+                    $('pingouin_rouge').style.visibility = 'visible';
+                } else {
+                    $('pingouin').style.visibility = 'visible';
+                    $('pingouin_rouge').style.visibility = 'hidden';
+                }
             }
             
         </script>
     </head>
     <body>
         <img src='images/pingouin_grand.png' id='pingouin'>
-        <button onclick="pingouinG()">Gauche</button>
-        <button onclick="pingouinD()">Droite</button>
-        <button onclick="pingouinH()">Haut</button>
-        <button onlcick="pingouinB()">Bas</button>
-        <button onclick="pingouinPlus()">+</button>
-        <button onclick="pingouinMoins()">-</button>
+        <img src='images/pingouin_rouge_grand.png' id='pingouin_rouge'>
+        <button onclick="pingouinX(-10)">Gauche</button>
+        <button onclick="pingouinX(10)">Droite</button>
+        <button onclick="pingouinY(-10)">Haut</button>
+        <button onclick="pingouinY(10)">Bas</button>
+        <button onclick="pingouinZoom(1.1)">+</button>
+        <button onclick="pingouinZoom(1/1.1)">-</button>
+        <button onclick="changerPingouin()">Changer de pingouin</button>
     </body>
 </html>
