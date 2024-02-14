@@ -2,35 +2,109 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>m08 seD</title>
+        <title>m08 seE</title>
+        <link rel="stylesheet" href="styles_DEF.css" />
         <script type="text/javascript" src="fcts_utilitaires.js"></script>
         <script type="text/javascript">
             
             "use strict"
-            
+
+
+            let x = 100;
+            let dx = 10;
+
             function pingouinG() {
-                document.getElementById('pingouin').style.left -= 10;
+                x -= dx;
+                $('pingouin').style.left = x + 'px';
             }
-            
+
             function pingouinD() {
-                document.getElementById('pingouin').style.left += 10;
+                x += dx;
+                $('pingouin').style.left = x + 'px';
             }
-            
+
+
+            let y = 50;
+            let dy = 50;
+
             function pingouinH() {
-                document.getElementById('pingouin').style.top -= 10;
+                y -= dy;
+                $('pingouin').style.top = y + 'px';
             }
-            
+
             function pingouinB() {
-                document.getElementById('pingouin').style.top += 10;
+                y += dy;
+                $('pingouin').style.top = y + 'px';
+            }
+
+
+
+            function random(n1, n2) {
+                let range = n2-n1+1;
+                return n1+Math.floor(Math.random()*range);
+            }
+
+
+            let t;
+            let c;
+            let state = 0;
+
+            function voyageP() {
+                t = setInterval(choixDirection,100);
+                c = setInterval(cycleColour,500);
+            }
+
+            function stopP() {
+                clearInterval(t);
+                clearInterval(c);
+                $('pingouin').src = 'images/pingouin_grand.png';
+            }
+
+            function choixDirection() {
+                switch (random(1,4)) {
+                    case 1:
+                        pingouinG();
+                        // console.log('case 1: D');
+                        break;
+                    case 2:
+                        pingouinD();
+                        // console.log('case 2: G');
+                        break;
+                    case 3:
+                        pingouinH();
+                        // console.log('case 3: H');
+                        break;
+                    case 4:
+                        pingouinB();
+                        // console.log('case 4: B');
+                        break;
+                    default:
+                        console.log('Fell back to default');
+                }
+            }
+
+            function cycleColour() {
+                state = (state+1)%3;
+                switch (state) {
+                    case 0:
+                        $('pingouin').src = 'images/pingouin_grand.png';
+                        break;
+                    case 1:
+                        $('pingouin').src = 'images/pingouin_vert_grand.png';
+                        break;
+                    case 2:
+                        $('pingouin').src = 'images/pingouin_jaune_grand.png';
+                        break;
+                    default:
+                        console.log('Fell back to default')
+                }
             }
             
         </script>
     </head>
     <body>
         <img src='images/pingouin_grand.png' id='pingouin'>
-        <button onclick="pingouinG()">Gauche</button>
-        <button onclick="pingouinD()">Droite</button>
-        <button onclick="pingouinH()">Haut</button>
-        <button onlcick="pingouinB()">Bas</button>
+        <button onclick="voyageP()">Voyage aléatoire du pingouin</button>
+        <button onclick="stopP()">Arrêt du pingouin</button>
     </body>
 </html>
