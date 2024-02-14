@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>m08 seH</title>
+    <link rel="stylesheet" href="styles_HI.css" />
+    <script type="text/javascript" src="fcts_utilitaires.js"></script>
+    <script type="text/javascript">
+
+        "use strict"
+
+        let no_montagne;
+        let ordre;
+
+        function random(n1, n2) {
+            let range = n2-n1+1;
+            return n1+Math.floor(Math.random()*range);
+        }
+
+        function changerCouleur(idIn) {
+            // console.log($(idIn).style.backgroundColor)
+            switch ($(idIn).style.backgroundColor) {
+                case "rgb(190, 190, 190)":
+                    $(idIn).style.backgroundColor = "#FFFFFF";
+                    break;
+                default:
+                    $(idIn).style.backgroundColor = "#BEBEBE";
+            }
+        }
+
+        function afficheImages() {
+            for (let i=1 ; i<=4 ; i++) {
+                $(`1_${i}`).innerHTML = `<img src="images/5_${ordre[i-1]}.jpg" />`
+                // console.log($(`1_${i}`).innerHTML)
+            }
+        }
+
+        function choixNo() {
+            no_montagne = random(1,6);
+        }
+
+        function choixOrdre() {
+            switch (no_montagne) {
+                case 1:
+                    ordre=[2,3,1,4]
+                    break;
+                case 2:
+                    ordre=[2,4,3,1]
+                    break;
+                case 3:
+                    ordre=[3,1,2,4]
+                    break;
+                case 4:
+                    ordre=[3,1,4,2]
+                    break;
+                case 5:
+                    ordre=[4,1,3,2]
+                    break;
+                case 6:
+                    ordre=[4,3,2,1]
+                    break;
+            }
+            // console.log(ordre)
+        }
+
+        function init() {
+            choixNo();
+            choixOrdre();
+            afficheImages();
+        }
+
+    </script>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td id="1_1" onclick="changerCouleur('1_1')">&nbsp;</td>
+        <td id="1_2" onclick="changerCouleur('1_2')">&nbsp;</td>
+    </tr>
+    <tr>
+        <td id="1_3" onclick="changerCouleur('1_3')">&nbsp;</td>
+        <td id="1_4" onclick="changerCouleur('1_4')">&nbsp;</td>
+    </tr>
+</table>
+
+<div class="bouton">
+    <button onclick="init()">Afficher les images</button>
+</div>
+
+</body>
+</html>
