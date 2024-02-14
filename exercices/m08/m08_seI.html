@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>m08 seI</title>
+    <link rel="stylesheet" href="styles_HI.css" />
+    <script type="text/javascript" src="fcts_utilitaires.js"></script>
+    <script type="text/javascript">
+
+        "use strict"
+
+        let selection;
+
+        function memoriser(idIn) {
+            console.log(idIn.id[2])
+            selection = idIn.id[2];
+            idIn.innerHTML = `<h1>${selection}</h1>`;
+        }
+
+    </script>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td onclick="memoriser(this)" id="1_1">&nbsp;</td>
+        <td onclick="memoriser(this)" id="1_2">&nbsp;</td>
+    </tr>
+    <tr>
+        <td onclick="memoriser(this)" id="1_3">&nbsp;</td>
+        <td onclick="memoriser(this)" id="1_4">&nbsp;</td>
+    </tr>
+</table>
+
+</body>
+</html>
