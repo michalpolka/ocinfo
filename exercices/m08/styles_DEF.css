@@ -18,12 +18,13 @@ table {
     position: absolute;
     left: 380px;
     top: 450px;
+    pointer-events: none;
 }
 
 td {
     width: 40px;
     height: 100px; 
-    background-color: black; 
+    background-color: black;
     border-width: 1px; 
     border-style: inset;
 } 

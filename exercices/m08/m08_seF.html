@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>m08 seF</title>
+    <link rel="stylesheet" href="styles_DEF.css" />
+    <script type="text/javascript" src="fcts_utilitaires.js"></script>
+    <script type="text/javascript">
+
+        "use strict"
+
+        let sourisX;
+        let sourisY;
+
+        let pingouinX = 0;
+        let pingouinY = 0;
+
+        function memoriserSouris(coord) {
+            sourisX= coord.clientX;
+            sourisY= coord.clientY;
+        }
+
+        function adapterCoordPing() {
+            pingouinX = sourisX-145;
+            pingouinY = sourisY-211;
+        }
+
+        function bougerPingouin(souris) {
+            memoriserSouris(souris)
+            adapterCoordPing()
+
+            $('pingouin').style.left = pingouinX + 'px';
+            $('pingouin').style.top = pingouinY + 'px';
+
+            // console.log(pingouinX + ' ' + pingouinY)
+        }
+
+        function controlerPingouin(souris) {
+
+            if (sourisX>=380 && sourisX<=420 && sourisY>=450 && sourisY<=550) {
+                alert('Bravo ! Votre pingouin a réussi son expédition!')
+            } else {
+                alert('Votre pingouin n’a pas encore\natteint le but de son expédition. Essayez encore, vous pouvez y arriver.')
+            }
+
+
+        }
+
+    </script>
+</head>
+<body>
+
+<img src='images/pingouin_grand.png' id='pingouin' onclick="controlerPingouin(event)" onmousemove="bougerPingouin(event)" />
+
+<table>
+    <tr>
+        <td>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
