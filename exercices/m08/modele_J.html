@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>exercice final (solution J)</title>
+
+        <link rel="stylesheet" type="text/css" href="styles_J.css">
+
+        <script>
+
+            "use strict";
+
+            //fonctions utilitaires
+
+            function $(idElem) {
+                return document.getElementById(idElem);
+            }
+
+            function $$(nameElem) {
+                return  document.getElementsByName(nameElem);
+            }
+
+            function remplirHTML(idElem,txt) {
+                $(idElem).innerHTML = txt;
+            }
+
+            function memoriserSouris(coord) {
+                sourisX = coord.clientX;
+                sourisY = coord.clientY;
+            }
+
+            //variables globales. Ne pas en ajouter
+
+            var no_montagne = 0;
+            var ordre = [];
+            var selection = 0;
+            var controle = [0,0,0,0,0,0];
+            var puzzle = [0,0,0,0];
+            var depot = true;
+            var t0,dt;
+            var prenom = "Inconnu";
+            var coordPics = [
+                586,233,
+                615,160,
+                527,198,
+                631,65,
+                563,47,
+                644,55,
+                612,85 ];
+            var t;
+            var sourisX,sourisY;
+            var pingouinX,pingouinY;
+            var pingouinEnMvt = false;
+            var pingouinClignotant = false;
+            var tPingouins = [
+                'images/pingouin_rouge.png',
+                'images/pingouin_vert.png',
+                'images/pingouin_jaune.png'];
+            var compteurCouleur = 0;
+
+
+            //calcul du temps nécessaire pour trouver les bonnes réponses
+
+            function demarrerChrono(){
+
+            }
+
+            function lectureChrono(){
+
+            }
+
+            //choix aléatoire de la montagne (dans une liste de 7)
+            //et de l'ordre initial des pièces de puzzle (6 ordres possibles)
+
+            function choixNo(){
+
+            }
+
+            function choixOrdre(){
+
+            }
+
+            // démarrage du chronomètre, choix de la montagne et de l'ordre des 
+            // images, affichage des images dans le tableau n°1
+
+            function afficheImages(){
+
+            }
+
+            function init(){
+
+            }
+
+            //intialisation des valeurs, disparition des images
+
+            function effacer(){
+
+            }
+
+            //initialisation si nécessaire, mise en mémoire du prénom, appel à init()
+
+            function premierePartie(txt){
+
+            }
+
+            function nouvellePartie(){
+
+            }
+
+            function nouveauJoueur(){
+
+            }
+
+            //mémorise l'image sélectionnée par onclick dans le tableau n°1
+
+            function memoriser(idIn){
+                // console.log(idIn.id[2])
+            selection = idIn.id[2];
+            idIn.innerHTML = `<h1>${selection}</h1>`;
+            }
+
+            //dépose l'image sélectionnée dans le tableau n°2
+
+            function deposer(id){
+
+            }
+
+            //contrôle des réponses (puzzle, nom de la montagne et altitude)
+
+            function controlePuzzle(){
+
+            }
+
+            function controleNom(){
+
+            }
+
+            function controleAlt(){
+
+            }
+
+            //affichage du résultat
+
+            function controleReponses(){
+
+            }
+
+            //déplacement du pingouin
+
+            function adapterCoordPing(){
+
+            }
+
+            function bougerPingouin(souris) {
+
+            }
+
+
+            //clignotement du pingouin
+
+            function chgtPingouins(){
+
+            }
+
+            //résultat de l'ascension du pingouin
+
+            function controlePingouin(souris){
+
+            }
+
+        </script>
+    </head>
+    
+    <body onmousemove='bougerPingouin(event);'>
+        <table>
+            <tr>
+                <td id="1_1" onclick="memoriser(this.id);">
+                    <img src="images/vide.jpg">
+                </td>
+                <td id="1_2" onclick="memoriser(this.id);">
+                    <img src="images/vide.jpg">
+                </td>
+                <td id="2_1" onclick="deposer(this.id);">
+                    <img src="images/vide.jpg">
+                </td>
+                <td id="2_2" onclick="deposer(this.id);">
+                    <img src="images/vide.jpg">
+                </td>
+                
+                <td id="td_radio" rowspan="4">
+
+                    <h4>nom de la montagne:</h4>
+
+                    <p>
+                        <input type="radio" name="radio_noms" value="4">
+                        L'Eiger
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_noms" value="7">
+                        La Dent Blanche
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_noms" value="3">
+                        Le Chasseral
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_noms" value="1">
+                        Le Cochet
+                    </p>
+                    <p> 
+                        <input type="radio" name="radio_noms" value="6">
+                        Le Zinalrothorn
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_noms" value="5">
+                        La Dent d'Hérens
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_noms" value="2">
+                        Le Chasseron
+                    </p>
+
+                    <h4>Altitude de la montagne:</h4>
+
+                    <p>
+                        <input type="radio" name="radio_altitudes">
+                        1483[m]
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_altitudes">
+                        1607[m]
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_altitudes">
+                        1607,4[m]
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_altitudes">
+                        3970[m]
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_altitudes">
+                        4171[m]
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_altitudes">
+                        4221[m]
+                    </p>
+                    <p>
+                        <input type="radio" name="radio_altitudes">
+                        4356[m]
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td id="1_3" onclick="memoriser(this.id);">
+                    <img src="images/vide.jpg">
+                </td>
+                <td id="1_4" onclick="memoriser(this.id);">
+                    <img src="images/vide.jpg">
+                </td>
+                <td id="2_3" onclick="deposer(this.id);">
+                    <img src="images/vide.jpg">
+                </td>
+                <td id="2_4" onclick="deposer(this.id);">
+                    <img src="images/vide.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="bouton"onclick="nouvellePartie();">
+                    <h2>Nouvelle partie</h2>
+                </td>
+                <td colspan="2" class="bouton" onclick="controleReponses();">
+                    <h2>Vérifier les réponses</h2>
+                </td>
+            </tr>
+            <tr>
+                <td id="prenom_res" colspan="4">
+                    <h2>
+                        Entrez votre prénom pour commencer la première
+                        partie:
+                        <br>
+                        <br>
+                        <input name="prenom" type="text"  maxlength="30" 
+                            onkeydown='if(event.key=="Enter")premierePartie(this.value);'>
+                    </h2>
+                </td>
+            </tr>
+        </table>
+
+<!--         image du pingouin (initialement invisible) -->
+
+        <img src='images/pingouin.png' id='pingouin' onclick='controlePingouin(event);'>
+    </body>
+</html>
