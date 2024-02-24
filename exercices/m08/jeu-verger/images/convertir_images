@@ -1,0 +1,1 @@
+for file in c?.jpg; do; convert $file -colorspace Gray -level 0%,100%,2.0  ${file%.jpg}_nb.jpg; done
