@@ -1,0 +1,81 @@
+/****************************/
+/* styles pour corbeau.html */
+/****************************/
+
+html{
+    background-color : lightgrey;
+}
+
+body {
+    width : 800px;
+    border : 1px solid black;
+    margin-top : 10px;
+    margin-left : auto;
+    margin-right : auto;
+    background-color : white;
+    font-family : arial, sans;
+    text-align : center;
+}
+
+/* -- divisions -- */
+
+#entete,#pied {
+    background-color : green;
+    color : white;
+    margin : 20px;
+    padding : 20px;
+}
+
+#entete {
+    font-weight : bold;
+    font-size : 16px;
+}
+
+#jeu {
+    margin : auto;
+    width : 760px;
+}
+
+/* -- tableaux -- */
+table,td {
+    border : 1px solid red;
+}
+
+td{
+    vertical-align : top;
+    width : 190px;
+}
+
+#panier, #panier td{
+    border : none;
+}
+
+#panier{
+    width : 160px;
+    margin : auto;
+}
+
+#panier td {
+    vertical-align : middle;
+    width : 80px;
+}
+
+/* -- divers -- */
+h2 {
+    font-size : 14px;
+    padding : 5px;
+}
+
+img {
+    width : 40px;
+    height : 40px;
+}
+
+#corbeau img {
+    width : 50px;
+    height : 50px;
+    margin : 1px;
+    /* pour éviter les espaces supplémentaires en-dessous
+     * des images formant le corbeau  */
+    vertical-align : bottom;
+}
