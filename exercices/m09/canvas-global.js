@@ -1,3 +1,6 @@
+let π = Math.PI;
+let circle = 2*π;
+
 function $(id) {
     return document.getElementById(id);
 }
