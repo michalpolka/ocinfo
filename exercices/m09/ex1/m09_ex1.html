@@ -18,7 +18,28 @@
             let height;
 
             function initDraw() {
+                drawRectangle();
+                drawCircle();
                 drawTriangle();
+                drawNearlyCircle();
+                drawHouse();
+                drawCross();
+            }
+
+            function drawRectangle() {
+                ctx.beginPath();
+                ctx.rect(100,100,80,40);
+                ctx.closePath();
+                ctx.fillStyle = 'red';
+                ctx.fill();
+            }
+
+            function drawCircle() {
+                ctx.beginPath();
+                ctx.arc(340,120,40,0,circle)
+                ctx.closePath()
+                ctx.strokeStyle = 'blue';
+                ctx.stroke();
             }
 
             function drawTriangle() {
@@ -27,10 +48,50 @@
                 ctx.lineTo(120,240);
                 ctx.lineTo(160,240);
                 ctx.closePath();
-                ctx.fillStyle='blue';
+                ctx.fillStyle = 'blue';
                 ctx.fill();
             }
 
+            function drawNearlyCircle() {
+                ctx.beginPath();
+                ctx.arc(340,220,40,0,0.75*circle);
+                ctx.lineTo(340,220);
+                ctx.closePath();
+                ctx.fillStyle = 'blue';
+                ctx.fill();
+            }
+
+            function drawHouse() {
+                ctx.beginPath();
+                ctx.moveTo(140,300);
+                ctx.lineTo(160,340);
+                ctx.lineTo(160,380);
+                ctx.lineTo(120,380);
+                ctx.lineTo(120,340);
+                ctx.closePath();
+                ctx.strokeStyle = 'green';
+                ctx.stroke();
+            }
+
+            function drawCross() {
+                ctx.beginPath();
+                ctx.moveTo(360,300);
+                ctx.lineTo(320,380);
+                ctx.lineTo(360,380);
+                ctx.lineTo(320,300);
+                ctx.closePath();
+
+                ctx.moveTo(380,320);
+                ctx.lineTo(300,360);
+                ctx.lineTo(300,320);
+                ctx.lineTo(380,360);
+                ctx.closePath();
+
+                ctx.strokeStyle = 'red';
+                ctx.fillStyle = 'yellow';
+                ctx.stroke();
+                ctx.fill();
+            }
 
 
             
@@ -39,7 +100,7 @@
     </head>
     <body onload="initCanvas('canvas');initDraw()">
 
-        <canvas id="canvas" width="300" height="250"></canvas>
+        <canvas id="canvas" width="500" height="750"></canvas>
 
     </body>
 </html>
