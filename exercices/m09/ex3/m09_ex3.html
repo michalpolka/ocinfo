@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- <link rel="icon" href="[INSERT ICON FILE]" /> -->
+        <link rel="stylesheet" href="../canvas-global.css" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Michal Polka" />
+        <!-- <meta name="description" content="[INSERT DESCRIPTION]" /> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>m09 ex3</title>
+        <script type="text/javascript" src="../canvas-global.js"></script>
+        <script type="text/javascript">
+            
+            "use strict"
+
+            let ctx;
+            let width;
+            let height;
+
+
+
+            //             déclaration et initialisation des variables globales
+
+            let side = 10;
+            let villageSize = 150;
+            let nHouses = 50;
+
+            //             fonction utilitaire
+
+            /*
+                        Cette fonction reçoit deux valeurs numériques (a et b) et renvoie la
+                        différence entre ces deux valeurs.
+                        Elle est appelée dans la fonction dessinerVillage() pour
+                        trier les maisons de haut en bas (faire apparaître au premier
+                        plan les maisons ayant la coordonnée la plus élevée le long de l'axe y).
+                        La déclaration de cette fonction est complète et ne doit pas être modifiée.
+             */
+
+            function triArith(a,b) {
+                return a-b
+            }
+
+            //             fonctions permettant de déterminer les grandeurs aléatoires
+
+            /*
+                        La fonction suivante ne reçoit aucun paramètre.
+                        Elle retourne un tableau contenant les coordonnées de la position
+                        du village (point "vert" en haut à gauche de la zone du village).
+                        Ces coordonnées sont déterminées de manière aléatoire,
+                        en veillant au fait que le village doit être entièrement
+                        compris à l'intérieur de la balise canvas.
+                        Les coordonnées dépendent donc des variables width, height et tailleVillage.
+             */
+
+            function calculPosVillage() {
+                return [random(0,width-villageSize),
+                        random(0,height-villageSize)];
+            }
+
+            /*
+                        La fonction suivante ne reçoit aucun paramètre.
+                        Elle retourne un tableau contenant les coordonnées de la position
+                        (point "rouge" correspondant au haut de son toit) dans un village.
+                        On suppose que l'origine des axes est confondue avec le point donnant
+                        la position du village (point "vert" en haut à gauche de la zone du village).
+                        Les coordonnées de la position de la maison sont déterminées de manière aléatoire,
+                        en veillant au fait que la maison doit être entièrement
+                        comprise à l'intérieur de la zone rectangulaire associée au village.
+                        Ces coordonnées dépendent donc des variables cote et tailleVillage.
+             */
+
+            function calculPosMaison() {
+                return [random((side/2),(villageSize-(side/2))),
+                        random(0,(villageSize-(2*side)))];
+            }
+
+            /*
+                        La fonction suivante ne reçoit aucun paramètre.
+                        Elle retourne une string contenant une valeur de couleur
+                        de type rgb(...,...,...) déterminée de manière aléatoire
+                        (par exemple : "rgb(23,231,56)").
+                        La maison doit être visible ; la fonction ne doit donc pas
+                        renvoyer la couleur blanche.
+             */
+
+            function calculCouleur() {
+                return `rgb(${random(0,240)},${random(0,240)},${random(0,240)})`;
+            }
+
+            //             déclaration des fonctions de dessin
+
+            /*
+                        La fonction suivante ne retourne rien.
+                        Elle permet de représenter une maison dans la balise canvas.
+                        La couleur de remplissage de la maison correspond à la valeur de la string c et les
+                        coordonnées de sa position (point "rouge" d'une maison, qui correspond au
+                        haut de son toit) dans le référentiel de la balise canavas (point "bleu",
+                        origine en haut à gauche de la fenêtre de la balise) sont les valeurs x et y.
+                        La taille de la maison est donnée par la variable cote (qui correspond à la
+                        largeur de la maison).
+
+             */
+
+            function dessinerMaison(x,y,c){
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo((x + (side/2)), (y + side));
+                ctx.lineTo((x + (side/2)), (y + (side*2)));
+                ctx.lineTo((x - (side/2)), (y + (side*2)));
+                ctx.lineTo((x - (side/2)), (y + side));
+                ctx.closePath();
+                ctx.fillStyle = c;
+                ctx.fill();
+            }
+
+            /*
+                        La fonction suivante ne reçoit aucun paramètre et ne retourne rien.
+                        Elle est appelée chaque fois que l'on clique sur le bouton "Dessiner
+                        un village".
+                        En faisant appel aux fonctions adéquates, elle permet de :
+                        - déterminer aléatoirement les coordonnées de la position du village
+                          (point "vert" en haut à gauche de la zone du village).
+                        - déterminer aléatoirement les coordonnées des positions des maisons dans le
+                          village (les coordonnées x et les coordonnées y seront placées dans deux
+                          tableaux distincts, nommés tMaisonsX et tMaisonsY respectivement).
+                        - trier les coordonnées y des maisons dans l'ordre croissant (ceci permettra
+                          aux maisons ayant les coordonnées y les plus élevées de se situer à
+                          l'avant-plan). L'instruction permettant d'effectuer ce tri sur le tableau
+                          tMaisonsY utilise la fonction triArith et est déjà écrite.
+                        - dessiner les maisons du village en les plaçant aux positions adéquates
+                          et en les remplissant avec une couleur déterminée aléatoirement.
+             */
+
+            function dessinerVillage(){
+                let villageCoords = calculPosVillage();
+
+                let tMaisonsX = [];
+                let tMaisonsY = [];
+
+                for (let i=0 ; i<nHouses ; i++) {
+                    let tempCoords = calculPosMaison();
+                    tMaisonsX[i] = tempCoords[0] + villageCoords[0];
+                    tMaisonsY[i] = tempCoords[1] + villageCoords[1];
+                }
+
+                tMaisonsY.sort(triArith);
+
+                for (let i=0 ; i<nHouses ; i++) {
+                    dessinerMaison(tMaisonsX[i],tMaisonsY[i],calculCouleur());
+                }
+
+            }
+
+            
+
+        </script>
+    </head>
+    <body onload="initCanvas('canvas')">
+
+    <div>
+
+        <canvas id='canvas' width='800' height='500'>
+        </canvas>
+
+    </div>
+
+    <!-- appel de la fonction adéquate lors d'un clic sur le bouton-->
+
+    <button onclick="dessinerVillage()">Dessiner un village</button>
+
+    </body>
+</html>
