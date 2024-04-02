@@ -10,3 +10,8 @@ function initCanvas(id) {
     width = parseInt($(id).width);
     height = parseInt($(id).height)
 }
+
+function random(n1, n2) {
+    let range = n2-n1+1;
+    return n1+Math.floor(Math.random()*range);
+}
