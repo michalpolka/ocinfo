@@ -17,14 +17,86 @@
             let width;
             let height;
 
-            function initDraw() {
+            //déclaration et initialisation des variables globales
+
+            let side = 40;
+
+            //déclarations des fonctions permettant de
+            //déterminer les grandeurs aléatoires
+
+            //La fonction suivante ne reçoit aucun paramètre.
+            //Elle calcule et retourne un tableau contenant les coordonnées
+            //du "point rouge" de la maison (le haut de son toit).
+            //Ces coordonnées sont déterminées de manière aléatoire,
+            //en veillant au fait que la maison doit être entièrement
+            //visible à l'intérieur de la balise canvas.
+            //Les coordonnées dépendent donc
+            //des variables width, height et cote.
+
+            function calculPosition() {
+                // return x,y coordinates
+                return [random((side/2),(width-(side/2))),
+                        random(0,(height-(2*side)))];
+            }
+
+            //La fonction suivante ne reçoit aucun paramètre.
+            //Elle retourne une string contenant une valeur de couleur
+            //de type rgb(...,...,...) déterminée de manière aléatoire
+            //(par exemple : "rgb(23,231,56)").
+            //La maison doit être visible ; la fonction ne doit donc pas
+            //renvoyer la couleur blanche.
+
+            function calculCouleur() {
+                return `rgb(${random(0,240)},${random(0,240)},${random(0,240)})`;
+            }
+
+            //La fonction suivante ne reçoit aucun paramètre.
+            //Elle retourne une valeur booléenne, indiquant si la maison est
+            //remplie (true) ou pas (false); dans ce dernier cas, le contour
+            //de la maison sera visible.
+
+            function calculRemp() {
+                return random(0,1) === 0;
+            }
+
+            //fonctions de dessin
+
+            //La fonction suivante ne reçoit aucun paramètre et ne retourne rien.
+            //Elle permet de dessiner une maison entièrement visible à l'intérieur
+            //de la balise canvas et dont la position, la couleur et le remplissage
+            //(la maison est remplie ou pas) sont déterminés aléatoirement.
+            //La taille de la maison doit pouvoir d'adapter à la valeur de la
+            //variable cote (qui correspond à la largeur de la maison).
+
+
+            function dessinerMaison() {
+                let coords = calculPosition();
+
+                ctx.beginPath();
+                ctx.moveTo(coords[0], coords[1]);
+                ctx.lineTo((coords[0] + 20), (coords[1] + 40));
+                ctx.lineTo((coords[0] + 20), (coords[1] + 80));
+                ctx.lineTo((coords[0] - 20), (coords[1] + 80));
+                ctx.lineTo((coords[0] - 20), (coords[1] + 40));
+                ctx.closePath();
+                ctx.strokeStyle = calculCouleur();
+                ctx.fillStyle = calculCouleur();
+                calculRemp() ? ctx.stroke() : ctx.fill();
+            }
+
+            //La fonction suivante ne reçoit aucun paramètre et ne retourne rien.
+            //Elle appelle toutes les 20 millisecondes la fonction permettant
+            //de dessiner la maison.
+
+            function dessiner(){
+                setInterval(dessinerMaison,20)
             }
 
         </script>
     </head>
-    <body onload="initCanvas('canvas');initDraw()">
+    <body onload="initCanvas('canvas');dessiner()">
 
-        <canvas id="canvas" width="500" height="500"></canvas>
+        <canvas id="canvas" width="800" height="500"></canvas>
 
     </body>
 </html>
