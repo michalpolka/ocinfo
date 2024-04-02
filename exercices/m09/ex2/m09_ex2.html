@@ -74,10 +74,10 @@
 
                 ctx.beginPath();
                 ctx.moveTo(coords[0], coords[1]);
-                ctx.lineTo((coords[0] + 20), (coords[1] + 40));
-                ctx.lineTo((coords[0] + 20), (coords[1] + 80));
-                ctx.lineTo((coords[0] - 20), (coords[1] + 80));
-                ctx.lineTo((coords[0] - 20), (coords[1] + 40));
+                ctx.lineTo((coords[0] + (side/2)), (coords[1] + side));
+                ctx.lineTo((coords[0] + (side/2)), (coords[1] + (2*side)));
+                ctx.lineTo((coords[0] - (side/2)), (coords[1] + (2*side)));
+                ctx.lineTo((coords[0] - (side/2)), (coords[1] + side));
                 ctx.closePath();
                 ctx.strokeStyle = calculCouleur();
                 ctx.fillStyle = calculCouleur();
