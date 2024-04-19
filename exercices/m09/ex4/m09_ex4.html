@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- <link rel="icon" href="[INSERT ICON FILE]" /> -->
+        <link rel="stylesheet" href="../canvas-global.css" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Michal Polka" />
+        <!-- <meta name="description" content="[INSERT DESCRIPTION]" /> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>m09 ex4</title>
+        <script type="text/javascript" src="../canvas-global.js"></script>
+        <script type="text/javascript">
+            
+            "use strict"
+
+            let ctx;
+            let width;
+            let height;
+
+            function initDraw() {
+                drawRectangle();
+                drawCircle();
+                drawTriangle();
+                drawNearlyCircle();
+                drawHouse();
+                drawCross();
+            }
+
+            function drawRectangle() {
+                ctx.beginPath();
+                ctx.rect(100,100,80,40);
+                ctx.closePath();
+                ctx.fillStyle = 'red';
+                ctx.fill();
+            }
+
+            function drawCircle() {
+                ctx.beginPath();
+                ctx.arc(340,120,40,0,circle)
+                ctx.closePath()
+                ctx.strokeStyle = 'blue';
+                ctx.stroke();
+            }
+
+            function drawTriangle() {
+                ctx.beginPath();
+                ctx.moveTo(140,200);
+                ctx.lineTo(120,240);
+                ctx.lineTo(160,240);
+                ctx.closePath();
+                ctx.fillStyle = 'blue';
+                ctx.fill();
+            }
+
+            function drawNearlyCircle() {
+                ctx.beginPath();
+                ctx.arc(340,220,40,0,0.75*circle);
+                ctx.lineTo(340,220);
+                ctx.closePath();
+                ctx.fillStyle = 'blue';
+                ctx.fill();
+            }
+
+            function drawHouse() {
+                ctx.beginPath();
+                ctx.moveTo(140,300);
+                ctx.lineTo(160,340);
+                ctx.lineTo(160,380);
+                ctx.lineTo(120,380);
+                ctx.lineTo(120,340);
+                ctx.closePath();
+                ctx.strokeStyle = 'green';
+                ctx.stroke();
+            }
+
+            function drawCross() {
+                ctx.beginPath();
+                ctx.moveTo(360,300);
+                ctx.lineTo(320,380);
+                ctx.lineTo(360,380);
+                ctx.lineTo(320,300);
+                ctx.closePath();
+
+                ctx.moveTo(380,320);
+                ctx.lineTo(300,360);
+                ctx.lineTo(300,320);
+                ctx.lineTo(380,360);
+                ctx.closePath();
+
+                ctx.strokeStyle = 'red';
+                ctx.fillStyle = 'yellow';
+                ctx.stroke();
+                ctx.fill();
+            }
+
+            function changeScale(x,y) {
+                ctx.scale(x,y);
+                initDraw();
+            }
+
+            function clearCanvas() {
+                ctx.clearRect(0,0,width,height);
+            }
+
+            
+
+        </script>
+    </head>
+    <body onload="initCanvas('canvas');initDraw()">
+
+        <canvas id="canvas" width="500" height="500"></canvas>
+
+        <div>
+            <label for="xscale">X Scale:</label>
+            <input type="number" id="xscale" value="1">
+            <label for="yscale">Y Scale:</label>
+            <input type="number" id="yscale" value="1">
+            <button onclick="changeScale($('xscale').value,$('yscale').value)">Apply</button>
+            <button onclick="clearCanvas()">Clear</button>
+        </div>
+
+    </body>
+</html>
