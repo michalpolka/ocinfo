@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- <link rel="icon" href="[INSERT ICON FILE]" /> -->
+        <link rel="stylesheet" href="../canvas-global.css" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Michal Polka" />
+        <!-- <meta name="description" content="[INSERT DESCRIPTION]" /> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>m09 ex10</title>
+        <script type="text/javascript" src="../canvas-global.js"></script>
+        <script type="text/javascript">
+            
+            "use strict"
+
+            let ctx;
+            let width;
+            let height;
+
+            let bladeLength = 15;
+            let angle = 0;
+            let coordinates = [0,0];
+            let side = 40;
+
+            function initDraw() {
+                setInterval(animateCanvas,50)
+            }
+
+            function drawBlade() {
+                ctx.beginPath();
+                ctx.moveTo(0,0);
+                ctx.lineTo((bladeLength/2),bladeLength);
+                ctx.lineTo(-(bladeLength/2),bladeLength);
+                ctx.closePath();
+                ctx.fillStyle='yellow';
+                ctx.fill();
+                ctx.strokeStyle='orange';
+                ctx.stroke();
+            }
+
+            function drawWindmill() {
+                for (let i=0 ; i<4 ; i++) {
+                    drawBlade();
+                    ctx.rotate(0.5*π)
+                }
+            }
+
+            function drawHouse(coords) {
+                ctx.beginPath();
+                ctx.moveTo(coords[0], coords[1]);
+                ctx.lineTo((coords[0] + (side/2)), (coords[1] + side));
+                ctx.lineTo((coords[0] + (side/2)), (coords[1] + (2*side)));
+                ctx.lineTo((coords[0] - (side/2)), (coords[1] + (2*side)));
+                ctx.lineTo((coords[0] - (side/2)), (coords[1] + side));
+                ctx.closePath();
+                ctx.fillStyle = 'red';
+                ctx.fill();
+            }
+
+            function animateCanvas() {
+                clearCanvas();
+
+                drawHouse(coordinates)
+
+                ctx.save();
+                    ctx.translate(coordinates[0],coordinates[1]);
+                    ctx.rotate(angle);
+                    drawWindmill();
+                ctx.restore();
+
+                coordinates[0] += 2;
+                coordinates[1] += 1;
+                angle += 0.05;
+            }
+
+        </script>
+    </head>
+    <body onload="initCanvas('canvas');initDraw()">
+
+        <canvas id="canvas" width="500" height="500"></canvas>
+
+    </body>
+</html>
