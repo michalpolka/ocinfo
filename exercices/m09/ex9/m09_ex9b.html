@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- <link rel="icon" href="[INSERT ICON FILE]" /> -->
+    <link rel="stylesheet" href="../canvas-global.css" />
+    <meta charset="utf-8" />
+    <meta name="author" content="Michal Polka" />
+    <!-- <meta name="description" content="[INSERT DESCRIPTION]" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>m09 ex9b</title>
+    <script type="text/javascript" src="../canvas-global.js"></script>
+    <script type="text/javascript">
+
+        "use strict"
+
+        let ctx;
+        let width;
+        let height;
+
+        let bladeLength = 80;
+
+        function initDraw() {
+            ctx.translate(100,100);
+            drawWindmill();
+            setInterval(rotateCanvas,50)
+        }
+
+        function drawBlade() {
+            ctx.beginPath();
+            ctx.moveTo(0,0);
+            ctx.lineTo((bladeLength/2),bladeLength);
+            ctx.lineTo(-(bladeLength/2),bladeLength);
+            ctx.closePath();
+            ctx.fillStyle='yellow';
+            ctx.fill();
+            ctx.strokeStyle='orange';
+            ctx.stroke();
+        }
+
+        function drawWindmill() {
+            for (let i=0 ; i<4 ; i++) {
+                drawBlade();
+                ctx.rotate(0.5*π)
+            }
+        }
+
+        function rotateCanvas() {
+            ctx.clearRect(-100,-100,200,200);
+            ctx.rotate(0.05);
+            drawWindmill();
+        }
+
+    </script>
+</head>
+<body onload="initCanvas('canvas');initDraw()">
+
+<canvas id="canvas" width="500" height="500"></canvas>
+
+</body>
+</html>
