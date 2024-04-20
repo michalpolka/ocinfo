@@ -15,3 +15,7 @@ function random(n1, n2) {
     let range = n2-n1+1;
     return n1+Math.floor(Math.random()*range);
 }
+
+function clearCanvas() {
+    ctx.clearRect(0,0,width,height);
+}
