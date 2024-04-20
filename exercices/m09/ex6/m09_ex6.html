@@ -107,6 +107,11 @@
                 initDraw();
             }
 
+            function rotateCanvas(angle) {
+                ctx.rotate(angle);
+                initDraw();
+            }
+
             
 
         </script>
@@ -121,11 +126,17 @@
             <label for="yscale">Y Scale:</label>
             <input type="number" id="yscale" value="1">
             <button onclick="changeScale($('xscale').value,$('yscale').value)">Apply</button>
+
             <label for="xtranslate">X Translate:</label>
             <input type="number" id="xtranslate" value="0">
             <label for="ytranslate">Y Translate:</label>
             <input type="number" id="ytranslate" value="0">
             <button onclick="translateCanvas($('xtranslate').value,$('ytranslate').value)">Apply</button>
+
+            <label for="rotateangle">Rotate:</label>
+            <input type="number" id="rotateangle" value="0">
+            <button onclick="rotateCanvas($('rotateangle').value);console.log('hi')">Apply</button>
+
             <button onclick="clearCanvas()">Clear</button>
 
         </div>
