@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- <link rel="icon" href="[INSERT ICON FILE]" /> -->
+        <link rel="stylesheet" href="../canvas-global.css" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Michal Polka" />
+        <!-- <meta name="description" content="[INSERT DESCRIPTION]" /> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>m09 ex11</title>
+        <script type="text/javascript" src="../canvas-global.js"></script>
+        <script type="text/javascript">
+            
+            "use strict"
+
+            let ctx;
+            let width;
+            let height;
+
+            let bladeLength = 15;
+            let angle = [0,(0.5*π),π];
+            let dangle = [0.5,0.08,0.17]
+            let side = 40;
+
+            let houseCol = ['red','green','blue'];
+            let windmillCol = ['yellow','purple','deeppink'];
+            let windmillStroke = ['orange','red','black'];
+
+            let posX = [30,60,-10];
+            let posY = [10,70,110];
+
+            function initDraw() {
+                setInterval(animateCanvas,50)
+            }
+
+            function drawBlade(fillCol,strokeCol) {
+                ctx.beginPath();
+                ctx.moveTo(0,0);
+                ctx.lineTo((bladeLength/2),bladeLength);
+                ctx.lineTo(-(bladeLength/2),bladeLength);
+                ctx.closePath();
+                ctx.fillStyle=fillCol;
+                ctx.fill();
+                ctx.strokeStyle=strokeCol;
+                ctx.stroke();
+            }
+
+            function drawWindmill(fillCol,strokeCol) {
+                for (let i=0 ; i<4 ; i++) {
+                    drawBlade(fillCol,strokeCol);
+                    ctx.rotate(0.5*π)
+                }
+            }
+
+            function drawHouse(x,y,fillCol) {
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo((x + (side/2)), (y + side));
+                ctx.lineTo((x + (side/2)), (y + (2*side)));
+                ctx.lineTo((x - (side/2)), (y + (2*side)));
+                ctx.lineTo((x - (side/2)), (y + side));
+                ctx.closePath();
+                ctx.fillStyle = fillCol;
+                ctx.fill();
+            }
+
+            function animateCanvas() {
+                clearCanvas();
+                for (let i=0 ; i<=2 ; i++) {
+                    animateFrame(i)
+                }
+            }
+
+            function animateFrame(instance) {
+                drawHouse(posX[instance],posY[instance],houseCol[instance])
+
+                ctx.save();
+                    ctx.translate(posX[instance],posY[instance]);
+                    ctx.rotate(angle[instance]);
+                    drawWindmill(windmillCol[instance],windmillStroke[instance]);
+                ctx.restore();
+
+                posX[instance] += 2;
+                posY[instance] += 1;
+                angle[instance] += dangle[instance];
+            }
+
+        </script>
+    </head>
+    <body onload="initCanvas('canvas');initDraw()">
+
+        <canvas id="canvas" width="500" height="500"></canvas>
+
+    </body>
+</html>
