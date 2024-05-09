@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- <link rel="icon" href="[INSERT ICON FILE]" /> -->
+        <link rel="stylesheet" href="../canvas-global.css" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Michal Polka" />
+        <!-- <meta name="description" content="[INSERT DESCRIPTION]" /> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>m09 ex2</title>
+        <script type="text/javascript" src="../canvas-global.js"></script>
+        <script type="text/javascript">
+            
+            "use strict"
+
+            let ctx;
+            let width;
+            let height;
+
+            let fillCol = 'white';
+
+            function initDraw() {
+                drawSquare();
+            }
+
+            function drawSquare() {
+                ctx.beginPath();
+                ctx.rect(100,100,100,100);
+                ctx.closePath();
+                ctx.fillStyle = fillCol;
+                ctx.fill();
+            }
+
+            function updateCol(input) {
+                fillCol = input.value;
+                clearCanvas();
+                drawSquare();
+            }
+
+        </script>
+    </head>
+    <body onload="initCanvas('canvas');initDraw()">
+
+        <canvas id="canvas" width="300" height="300"></canvas> <br />
+
+        <input type="radio" id="redRadio" value="red" name="radRadio" onclick="updateCol(this)"><span>red</span><br />
+        <input type="radio" id="greenRadio" value="green" name="radRadio" onclick="updateCol(this)"><span>green</span><br />
+        <input type="radio" id="blueRadio" value="blue" name="radRadio" onclick="updateCol(this)"><span>blue</span><br />
+
+
+    </body>
+</html>
