@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- <link rel="icon" href="[INSERT ICON FILE]" /> -->
+        <link rel="stylesheet" href="../canvas-global.css" />
+        <meta charset="utf-8" />
+        <meta name="author" content="Michal Polka" />
+        <!-- <meta name="description" content="[INSERT DESCRIPTION]" /> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>m09 ex2</title>
+        <script type="text/javascript" src="../canvas-global.js"></script>
+        <script type="text/javascript">
+            
+            "use strict"
+
+            let ctx;
+            let width;
+            let height;
+
+            let pacmanPos = [300,300,0];
+            let pacmanCol = ['yellow','black'];
+            let pacmanRad = 50;
+            let pathRad = 200;
+            let angleRev = 0;
+            let dAngleRev = π/360;
+            let angleRot = 0;
+            let dAngleRot = 0;
+
+            let t;
+
+
+
+            function initDraw() {
+                t = setInterval(drawFrame, 10);
+            }
+
+            function drawPacman() {
+                ctx.beginPath();
+                ctx.arc(0, 0, pacmanRad, π / 9, - π / 9);
+                ctx.lineTo(0, 0);
+                ctx.closePath();
+                ctx.fillStyle = pacmanCol[0];
+                ctx.fill();
+                ctx.strokeStyle = pacmanCol[1];
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc((2*pacmanRad/5), -(2*pacmanRad/5), pacmanRad/10, 0, circle);
+                ctx.closePath();
+                ctx.fillStyle = 'black';
+                ctx.fill();
+            }
+
+            function drawPath() {
+                ctx.beginPath();
+                ctx.arc(0, 0, pathRad, 0, 2 * Math.PI);
+                ctx.closePath();
+                ctx.strokeStyle = 'black';
+                ctx.stroke();
+            }
+
+            function drawFrame() {
+                clearCanvas();
+
+                ctx.save();
+                    ctx.translate(pacmanPos[0],pacmanPos[1]);
+                    drawPath();
+                    ctx.rotate(angleRev);
+                    ctx.translate(-pathRad,0);
+                    ctx.rotate(angleRot);
+                    drawPacman();
+                ctx.restore();
+
+                if (angleRev>=(3*360)) {
+                    clearInterval(t);
+                }
+
+                angleRev+=dAngleRev;
+                angleRot+=dAngleRot;
+
+            }
+
+            function changeMode(num) {
+                switch (num) {
+                    case 1:
+                        dAngleRot = 0;
+                        break;
+                    case 2:
+                        dAngleRot = -π/360;
+                        break;
+                    case 3:
+                        dAngleRot = π/30;
+                        break;
+                }
+            }
+
+        </script>
+    </head>
+    <body onload="initCanvas('canvas');initDraw()">
+
+        <canvas id="canvas" width="600" height="600"></canvas>
+
+        <button onclick="changeMode(1)">rotate all</button>
+        <button onclick="changeMode(2)">no rotation</button>
+        <button onclick="changeMode(3)">fast rotation</button>
+
+    </body>
+</html>
